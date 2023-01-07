@@ -8,30 +8,18 @@ import {
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <StatsButtonsList>
-      <StatsButtonsListItem>
-        <StatsButton
-          type="button"
-          onClick={() => onLeaveFeedback(options[0].toLowerCase())}
-        >
-          {options[0]}
-        </StatsButton>
-      </StatsButtonsListItem>
-      <StatsButtonsListItem>
-        <StatsButton
-          type="button"
-          onClick={() => onLeaveFeedback(options[1].toLowerCase())}
-        >
-          {options[1]}
-        </StatsButton>
-      </StatsButtonsListItem>
-      <StatsButtonsListItem>
-        <StatsButton
-          type="button"
-          onClick={() => onLeaveFeedback(options[2].toLowerCase())}
-        >
-          {options[2]}
-        </StatsButton>
-      </StatsButtonsListItem>
+      {options.map((option, idx) => {
+        return (
+          <StatsButtonsListItem key={idx}>
+            <StatsButton
+              type="button"
+              onClick={() => onLeaveFeedback(option.toLowerCase())}
+            >
+              {option}
+            </StatsButton>
+          </StatsButtonsListItem>
+        );
+      })}
     </StatsButtonsList>
   );
 };
