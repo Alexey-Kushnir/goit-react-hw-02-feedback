@@ -18,8 +18,12 @@ export const StatsButton = styled.button`
   border: 1px solid #afb1b8;
   border-radius: 4px;
   cursor: pointer;
+  text-transform: capitalize;
   &:hover {
     border: 2px solid black;
     background-color: lightgray;
   }
+  /* &::first-letter {
+    font-size: 1.5rem;
+  } */
 `;

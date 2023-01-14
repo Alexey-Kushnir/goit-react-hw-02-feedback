@@ -8,13 +8,10 @@ import {
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <StatsButtonsList>
-      {options.map((option, idx) => {
+      {options.map(option => {
         return (
-          <StatsButtonsListItem key={idx}>
-            <StatsButton
-              type="button"
-              onClick={() => onLeaveFeedback(option.toLowerCase())}
-            >
+          <StatsButtonsListItem key={option}>
+            <StatsButton type="button" onClick={() => onLeaveFeedback(option)}>
               {option}
             </StatsButton>
           </StatsButtonsListItem>
@@ -25,6 +22,6 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.array.isRequired,
+  options: PropTypes.arrayOf(PropTypes.string).isRequired,
   onLeaveFeedback: PropTypes.func.isRequired,
 };
